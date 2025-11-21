@@ -1,6 +1,6 @@
-# COM-430-OL01 Software-Engineering: Group-3
+# COM-430-OL01 Software-Engineering: Group-2
 Carlos Silva / Cody Bradley / Joseph Prignano
-Group 3 Team Dev - Pet Rock Genie
+Group 2 Team Dev - Pet Rock Genie
 
 
 # Pet Rock Genie Application
