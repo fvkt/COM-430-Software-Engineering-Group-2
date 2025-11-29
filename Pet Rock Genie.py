@@ -1,102 +1,122 @@
 """
 Pet Rock Genie Application
-Version: 1.0.0
+Version: 2.0.0
 Environment: Test
 COM-430-Software Engineering: Group 2
-Instructor: Dr Brian Holbert
-Authors: carlos.silva02@email.saintleo.edu / joseph.prignano@email.saintleo.edu / cody.bradley02@email.saintleo.edu
-Description: A simple yes/no/maybe question answering application
+Instructor: Dr. Brian Holbert
+Authors: Cody Bradley / Carlos Silva / Joseph Prignano
+Description:
+    Version 2 of the Pet Rock Genie includes improved documentation,
+    better code readability, expanded logging, and enhanced input validation.
 """
 
 import random
-import datetime
 import logging
 
-# Configure logging
+# ------------------------------------------------------------------------------
+# Logging Configuration
+# ------------------------------------------------------------------------------
 logging.basicConfig(
-    filename='pet_rock_genie.log',
+    filename='pet_rock_genie_v2.log',
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
+# ------------------------------------------------------------------------------
+# Application Constants
+# ------------------------------------------------------------------------------
+VALID_EXIT_COMMANDS = ['quit', 'exit', 'bye']
+VALID_ANSWER_TYPES = ['yes', 'no', 'maybe']
+
+RESPONSES = {
+    'yes': [
+        "Yes! ◕ ◡ ◕",
+        "The rock says YES!",
+        "Absolutely yes! ᕦ(ò_óˇ)ᕤ"
+    ],
+    'no': [
+        "No! ಥ_ಥ",
+        "The rock says NO! (◣_◢)",
+        "Denied! (╯°□°）╯"
+    ],
+    'maybe': [
+        "Maybe... ( ͡° ͜ʖ ͡°)",
+        "Uncertain... MAYBE! ( ͡๏ ͜x ͡๏)",
+        "Try again later... ¯\\_(ツ)_/¯"
+    ]
+}
+
+# ------------------------------------------------------------------------------
+# Application Class
+# ------------------------------------------------------------------------------
 class PetRockGenie:
-    """Main application class for Pet Rock Genie"""
-    
+    """Primary logic for Pet Rock Genie"""
+
     def __init__(self):
-        """Initialize the Pet Rock Genie with response options"""
-        self.responses = {
-            'yes': [
-                "Yes! ◕ ◡ ◕",
-                "The rock says YES!",
-                "Definitely yes! permission granted ᕦ(ò_óˇ)ᕤ"
-            ],
-            'no': [
-                "No! ಥ_ಥ",
-                "The rock says NO! negative Ghost Rider! (◣_◢)",
-                "Absolutely not! (╯°□°）╯"
-            ],
-            'maybe': [
-                "Maybe... ( ͡° ͜ʖ ͡°)",
-                "The rock is uncertain... MAYBE! ( ͡๏ ͜x ͡๏)",
-                "Ask again later... maybe? ¯\_(ツ)_/¯"
-            ]
-        }
+        """Initialize counters and set response dictionary"""
+        self.responses = RESPONSES
         self.question_count = 0
-        logging.info("Pet Rock Genie initialized")
-    
+        logging.info("Version 2 Pet Rock Genie initialized")
+
     def get_answer(self, question):
-        """
-        Generate a random answer to a question
-        Args:
-            question (str): The user's question
-        Returns:
-            str: Random yes/no/maybe answer
-        """
-        answer_type = random.choice(['yes', 'no', 'maybe'])
+        """Return a randomly selected yes/no/maybe answer"""
+        answer_type = random.choice(VALID_ANSWER_TYPES)
         answer = random.choice(self.responses[answer_type])
         self.question_count += 1
-        
+
+        # Log question and answer
         logging.info(f"Question #{self.question_count}: {question}")
         logging.info(f"Answer: {answer}")
-        
+
         return answer
-    
+
     def run(self):
-        """Main application loop"""
-        print("(ง'̀-'́)ง Welcome to the Pet Rock Genie! (ง'̀-'́)ง")
-        print("Ask me the mighty rock genie (ง'̀-'́)ง any yes/no question, or type 'quit' to exit.\n")
-        logging.info("Application started")
-        
+        """Main application loop for user interaction"""
+        print("\n===============================")
+        print("  PET ROCK GENIE — TEST STAGE")
+        print("  Version 2.0.0")
+        print("===============================\n")
+
+        print("Ask any yes/no question, or type 'quit' to exit.\n")
+        logging.info("Application started (Version 2 Test Stage)")
+
         while True:
             try:
                 question = input("Your question: ").strip()
-                
-                if question.lower() in ['quit', 'exit', 'bye']:
-                    print(f"(ง'̀-'́)ง The rock rests. You asked {self.question_count} questions. Goodbye! (ง'̀-'́)ง")
-                    logging.info(f"Application closed. Total questions: {self.question_count}")
+
+                # Exit condition
+                if question.lower() in VALID_EXIT_COMMANDS:
+                    print(f"\n(ง'̀-'́)ง The rock rests after {self.question_count} questions.")
+                    logging.info("Application closed by user.")
                     break
-                
+
+                # Empty input handling
                 if not question:
-                    print("The rock needs a question to ponder! (ง'̀-'́)ง\n")
+                    print("Please enter a question for the rock!\n")
                     continue
-                
-                if not question.endswith('?'):
+
+                # Suggest proper question format
+                if not question.endswith("?"):
                     print("(Tip: Questions usually end with '?')")
-                
-                print(f"(ง'̀-'́)ง *the rock vibrates mysteriously* (ง'̀-'́)ง")
+
+                print("(ง'̀-'́)ง The rock considers your question... (ง'̀-'́)ง")
                 answer = self.get_answer(question)
                 print(f"Answer: {answer}\n")
-                
-            except KeyboardInterrupt:
-                print("\n(ง'̀-'́)ง The rock has been interrupted! Goodbye! (ง'̀-'́)ง")
-                logging.warning("Application interrupted by user")
-                break
-            except Exception as e:
-                print(f"Error: {str(e)}")
-                logging.error(f"Error occurred: {str(e)}")
 
+            except KeyboardInterrupt:
+                print("\n\n(ง'̀-'́)ง The rock has been interrupted! Goodbye!\n")
+                logging.warning("Application interrupted via keyboard.")
+                break
+
+            except Exception as e:
+                print(f"An unexpected error occurred: {str(e)}")
+                logging.error(f"Unhandled error: {str(e)}")
+                break
+
+# ------------------------------------------------------------------------------
+# Entry Point
+# ------------------------------------------------------------------------------
 def main():
-    """Entry point for the application"""
     genie = PetRockGenie()
     genie.run()
 
