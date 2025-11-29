@@ -1,0 +1,117 @@
+Pet Rock Genie — Version 2.0.0 (Test Environment)
+Overview
+
+The Pet Rock Genie is a simple console-based yes/no/maybe question-answering application designed for the COM-430 Software Engineering course. This Version 2 release represents the promoted Test Stage version of the application, incorporating improved documentation, clearer organization, enhanced logging, and refined input handling while maintaining the functionality validated in Version 1.
+
+This project demonstrates version promotion, configuration management, and the early stages of DevOps-style code progression across environments.
+
+What’s New in Version 2.0.0
+
+Version 2 includes multiple improvements over Version 1:
+
+Enhanced Documentation
+
+Added module-level metadata, docstrings, structured comments, and improved clarity.
+
+Cleaned & Organized Code
+
+Introduced constants, reorganized sections, and improved code readability.
+
+Improved User Input Handling
+
+Added suggestions for missing question marks and handling for empty user inputs.
+
+Expanded Logging
+
+New log file: pet_rock_genie_v2.log
+More detailed logs for:
+
+App start/end
+
+Questions
+
+Answers
+
+Errors
+
+Interrupt events
+
+Test Stage Identity
+
+Clear printed banner and metadata indicating Test Environment – Version 2.0.0.
+
+How to Run the Application
+Requirements
+
+Python 3.8 or higher
+
+No external libraries required
+
+Running the Program
+python main.py
+
+
+OR
+
+python pet_rock_genie.py
+
+
+You will be greeted with the Test Stage banner and prompted to ask questions.
+
+Test Environment Notes
+
+This release is deployed to the Test Stage as part of the software promotion workflow for this course.
+The goals of the Test Stage for Version 2 include:
+
+Validating enhanced logging behavior
+
+Ensuring user input handling functions correctly
+
+Verifying backward compatibility
+
+Confirming improvements do not alter expected application flow
+
+Repository Structure
+/PetRockGenie
+│
+├── pet_rock_genie_v2.log        # Auto-generated log file
+├── pet_rock_genie.py            # Main Version 2 application file
+├── README.md                    # Project documentation (you are here)
+└── (Version 1 files retained in original repository fork)
+
+Authors
+
+Carlos Silva
+
+Joseph Prignano
+
+Cody Bradley (Version 2 Promotion Lead)
+
+Saint Leo University
+COM-430 – Software Engineering
+Instructor: Dr. Brian Holbert
+
+📝 Version History
+Version 1.0.0 (Original Test Build)
+
+Initial implementation by team repository owner
+
+Basic yes/no/maybe functionality
+
+Simple logging
+
+Achieved full score for initial milestone
+
+Version 2.0.0 (Your Test Environment Promotion)
+
+Improved structure, documentation, and maintainability
+
+Expanded logging and input handling
+
+Updated metadata and environment identifiers
+
+Demonstrates code promotion for final evaluation
+
+📦 License
+
+This project is for academic purposes only under Saint Leo University coursework submission guidelines.
