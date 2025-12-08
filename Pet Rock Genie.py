@@ -1,13 +1,13 @@
 """
 Pet Rock Genie Application
-Version: 2.0.0
-Environment: Test
+Version: 2.1.0-Final Version
+Environment: Final Version
 COM-430-Software Engineering: Group 2
 Instructor: Dr. Brian Holbert
 Authors: Cody Bradley / Carlos Silva / Joseph Prignano
 Description:
-    Version 2 of the Pet Rock Genie includes improved documentation,
-    better code readability, expanded logging, and enhanced input validation.
+    This is the final version of the Pet Rock Genie Application, we made sure
+    the code was optimal and the version was upgraded to final prior to submission.
 """
 
 import random
@@ -73,8 +73,8 @@ class PetRockGenie:
     def run(self):
         """Main application loop for user interaction"""
         print("\n===============================")
-        print("  PET ROCK GENIE — TEST STAGE")
-        print("  Version 2.0.0")
+        print("  PET ROCK GENIE — FINAL VERSION")
+        print("  Version 2.1.0")
         print("===============================\n")
 
         print("Ask any yes/no question, or type 'quit' to exit.\n")
