@@ -1,0 +1,106 @@
+MeTL DevOps Checklist (1-Week Sprint)
+Project: Pet Rock Genie
+Team: Carlos Silva · Cody Bradley · Joseph Prignano
+Course: COM-430 – Software Engineering
+
+Phase 1 – Modeling & Planning
+ Define environments and promotion path:
+
+Dev → Test (v2.0.0) → Final (v2.1.0-Final).
+
+ Document objectives:
+
+Maintain yes/no/maybe behavior from Version 1.
+
+Improve logging, input handling, and code organization.
+
+ Capture versioning rules:
+
+Semantic style: MAJOR.MINOR.PATCH (e.g., 2.1.0).
+
+ Define acceptance criteria:
+
+No uncaught exceptions in normal use.
+
+Logs contain app start/end, questions, answers, errors, interrupts.
+
+Phase 2 – Test Environment Setup
+ Add environment metadata in code:
+
+ENVIRONMENT = "TEST" and VERSION = "2.0.0" for Test Stage.
+
+ Ensure banner shows environment and version on startup.
+
+ Configure logging:
+
+Log file: pet_rock_genie_v2.log.
+
+Format: timestamp, level, message.
+
+ Update README with “How to Run (Test Stage)” section.
+
+Phase 3 – Implementation & Promotion
+ Implement or refine:
+
+Input trimming and empty-input handling.
+
+Question mark suggestion for non-? inputs.
+
+Exit commands: quit, exit, bye.
+
+ Verify logging coverage:
+
+Log each question, answer, and any errors.
+
+ Tag code:
+
+v2.0.0-test for Test Stage.
+
+v2.1.0-final for Final Version.
+
+Phase 4 – Testing & Evaluation
+ Create basic test cases:
+
+Normal question with ?.
+
+Question without ? (tip expected).
+
+Empty input (prompt again).
+
+Exit command (graceful shutdown).
+
+ Run scripted test harness (see below) to generate test_snapshot.json.
+
+ Review pet_rock_genie_v2.log:
+
+Confirm all expected log lines exist.
+
+ Decide promotion:
+
+If tests pass and logs are clean → promote to Final.
+
+Phase 5 – Logging & Monitoring
+ Standardize log content:
+
+Include question number and text in logs.
+
+ Check log usability:
+
+Can an instructor follow what happened from the log alone?
+
+ Document log behavior briefly in README or LOGGING.md.
+
+Phase 6 – Final Deployment & Handoff
+ Switch config to:
+
+ENVIRONMENT = "FINAL" and VERSION = "2.1.0-Final".
+
+ Update banner to “FINAL VERSION – Pet Rock Genie 2.1.0”.
+
+ Prepare submission package:
+
+Source code, README, MeTL checklist, runbook, example log, and test_snapshot.json.
+
+ Note rollback:
+
+Revert to v2.0.0-test tag if you need to demonstrate Test Stage behavior.
