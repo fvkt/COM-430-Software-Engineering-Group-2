@@ -1,0 +1,83 @@
+Runbook – Pet Rock Genie (Console App)
+Purpose: Step-by-step instructions so anyone can run, test, and troubleshoot Pet Rock Genie in Test or Final environments, following runbook best practices for clarity and repeatability.​
+
+1. System Requirements
+Python 3.8 or higher installed.
+
+OS: Any system that can run Python (Windows, macOS, Linux).
+
+No external libraries required.
+
+2. Files and Entry Point
+Main app file:
+
+pet_rock_genie.py (preferred)
+
+or main.py (fallback, if configured).
+
+Log file (auto-created):
+
+pet_rock_genie_v2.log.
+
+3. Normal Run – Test Stage
+Open a terminal in the project root:
+
+Directory containing pet_rock_genie.py and pet_rock_genie_v2.log.
+
+(Optional) Set environment marker (if using config file or env vars):
+
+Example: ENVIRONMENT=TEST, VERSION=2.0.0.
+
+Run the application:
+
+python pet_rock_genie.py
+
+or python main.py
+
+Verify startup banner:
+
+Confirms “Test Environment / Version 2.0.0”.
+
+Interact:
+
+Type a yes/no question and press Enter.
+
+Type quit, exit, or bye to exit.
+
+4. Normal Run – Final Version
+Ensure configuration is set to Final:
+
+ENVIRONMENT=FINAL, VERSION=2.1.0-Final (via config or code constant).
+
+Run:
+
+python pet_rock_genie.py
+
+Verify banner:
+
+Shows “FINAL VERSION – Pet Rock Genie 2.1.0”.
+
+Use the app as in Test Stage.
+
+5. Using the Test Harness
+Purpose: Automatically run a small scripted session and capture a snapshot of behavior and logs, using Python’s subprocess module to control a child process and collect its output.​
+
+Folder structure (suggested):
+
+/PetRockGenie
+
+pet_rock_genie.py
+
+main.py (optional)
+
+pet_rock_genie_v2.log
+
+runbook.md ← this file
+
+metl_checklist.md
+
+/tests
+
+run_test_stage.py
+
+test_inputs.json (optional)
